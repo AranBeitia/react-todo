@@ -1,45 +1,43 @@
-import React, { Component } from "react";
-
-class TodoForm extends Component{
-  constructor(props) {
-    super(props)
-    this.state = {
-      text: ""
-    }
+import React, { Component } from 'react'
+import shortid from 'shortid'
+class TodoForm extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			text: ''
+		}
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+	}
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+		this.props.onSubmit({
+			id: shortid.generate(),
+			text: this.state.text,
+			complete: false
+		})
+
+		this.setState({ text: "" })
   }
 
-  handleChange (event) {
-    this.setState= {
-      text: event.target.value
-    }
-  }
+  handleChange = (e) => this.setState({ [e.target.name]: e.target.value })
 
-  render() {
-    return(
-      <form className="card-body">
-        <input type="text" handleChange={this.handleChange} placeholder="insert text here" />
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item is-disabled" aria-disabled="true">
-            <input type="checkbox" name="name1" id="" />
-            <label htmlFor="name1">(lo que venga del input de arriba)</label>
-          </li>
-          <li className="list-group-item">
-            <input type="checkbox" name="name2" id="" />
-            <label htmlFor="name2">(lo que venga del input de arriba)</label>
-          </li>
-          <li className="list-group-item">
-            <input type="checkbox" name="name3" id="" />
-            <label htmlFor="name3">(lo que venga del input de arriba)</label>
-          </li>
-          <li className="list-group-item">
-            <input type="checkbox" name="name4" id="" />
-            <label htmlFor="name4">(lo que venga del input de arriba)</label>
-          </li>
-        </ul>
-      </form>
-    )
-  }
+	render() {
+		const { text } = this.state
+		return (
+			<form className="card-body" onSubmit={this.handleSubmit}>
+				<input
+					type="text"
+					placeholder="insert a todo"
+					value={text}
+					name="text"
+          className="todo-input"
+          onChange={this.handleChange}
+				/>
+			</form>
+		)
+	}
 }
 
 export default TodoForm

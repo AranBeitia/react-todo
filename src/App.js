@@ -1,8 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 
-import TodoForm from "./components/TodoForm"
+import TodoList from "./components/TodoList"
 import TodoFooter from "./components/TodoFooter"
-
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class App extends Component {
           <header className="card-header">
             <h1>TODO</h1>
           </header>
-          <TodoForm />
+          <TodoList />
           <TodoFooter />
         </main>
         <footer className="text-center">
