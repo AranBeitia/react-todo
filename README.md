@@ -125,7 +125,7 @@ In this pill we won't deploy the app.
 
 In this project you will build a todo app similar to the following screenshot.
 
-<img src="src/img/app-view.jpg">
+<img src="src/assets/img/app-view.jpg">
 
 ## Project requirements
 
