@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import TodoList from "./components/TodoList"
-import TodoFooter from "./components/TodoFooter"
+// import TodoFooter from "./components/TodoFooter"
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class App extends Component {
             <h1>TODO</h1>
           </header>
           <TodoList />
-          <TodoFooter />
+          {/* <TodoFooter /> */}
         </main>
         <footer className="text-center">
           <p>Drag and drop to reorder list</p>
