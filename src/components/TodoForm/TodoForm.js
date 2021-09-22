@@ -21,7 +21,7 @@ class TodoForm extends Component {
 		this.setState({ text: "" })
   }
 
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value })
+  handleChange(e) {this.setState({ [e.target.name]: e.target.value })}
 
 	render() {
 		const { text } = this.state
