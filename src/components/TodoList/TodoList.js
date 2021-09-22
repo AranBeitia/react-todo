@@ -37,6 +37,12 @@ class TodoList extends Component {
     })
   }
 
+  removeCompleted = () => {
+    this.setState({
+      todos: this.state.todos.filter( item => !item.complete )
+    })
+  }
+
 	render() {
 		let { todos, todoToShow } = this.state
     if(todoToShow === "all") {
@@ -45,10 +51,7 @@ class TodoList extends Component {
       todos = todos.filter(item => !item.complete)
     } else if (todoToShow === "complete") {
       todos = todos.filter(item => item.complete)
-    } else if (todoToShow === "clear") {
-      todos = []
     }
-
 
 		return (
 			<>
@@ -77,7 +80,8 @@ class TodoList extends Component {
 						<button onClick={() => this.todoToShow("active")} className="text-tag px-2">Active</button>
 						<button onClick={() => this.todoToShow("complete")} className="text-tag">Completed</button>
 					</div>
-					<button onClick={() => this.todoToShow("clear")} className="text-tag">Clear Completed</button>
+          
+					<button onClick={this.removeCompleted} className="text-tag">Clear Completed</button>
 				</footer>
 			</>
 		)
