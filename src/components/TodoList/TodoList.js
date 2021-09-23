@@ -17,6 +17,12 @@ class TodoList extends Component {
 		this.setState({ todos: newTodo })
 	}
 
+	deleteTodo = (id) => {
+		this.setState({
+			todos: this.state.todos.filter(item => item.id !== id)
+		})
+	}
+
 	toggleComplete = (id) => {
 		this.setState({
 			todos: this.state.todos.map((item) => {
@@ -70,6 +76,7 @@ class TodoList extends Component {
 							>
 								{item.text}
 							</label>
+							<Button onClick={() => this.deleteTodo(item.id)}>X</Button>
 						</li>
 					))}
 				</ul>
