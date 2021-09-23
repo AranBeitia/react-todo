@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TodoForm from '../TodoForm'
 // import TodoItem from '../TodoItem'
 // import Todo from '../Todo'
+import Button from "../Button"
 class TodoList extends Component {
 	constructor(props) {
 		super(props)
@@ -77,25 +78,25 @@ class TodoList extends Component {
 						{todos.filter((item) => !item.complete).length} items left
 					</span>
 					<div className="d-flex">
-						<button onClick={() => this.todoToShow('all')} className="text-tag">
+						<Button onClick={() => this.todoToShow('all')} className="text-tag">
 							All
-						</button>
-						<button
+						</Button>
+						<Button
 							onClick={() => this.todoToShow('active')}
 							className="text-tag px-2"
 						>
 							Active
-						</button>
-						<button
+						</Button>
+						<Button
 							onClick={() => this.todoToShow('complete')}
 							className="text-tag"
 						>
 							Completed
-						</button>
+						</Button>
 					</div>
-					<button onClick={this.clearCompleted} className="text-tag">
+					<Button onClick={this.clearCompleted} className="text-tag">
 						Clear Completed
-					</button>
+					</Button>
 				</footer>
 			</>
 		)
