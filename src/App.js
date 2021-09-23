@@ -16,7 +16,6 @@ class App extends Component {
             <h1>TODO</h1>
           </header>
           <TodoList />
-          {/* <TodoFooter /> */}
         </main>
         <footer className="text-center">
           <p>Drag and drop to reorder list</p>
