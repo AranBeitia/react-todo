@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import TodoForm from '../TodoForm'
-// import TodoItem from '../TodoItem'
-import Todo from '../Todo'
+import TodoItem from '../TodoItem'
+// import Todo from '../Todo'
+import Button from '../Button'
 class TodoList extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			todos: [],
-      todoToShow: 'all' // default state
+			todoToShow: 'all', // default state
 		}
 	}
 
@@ -31,44 +32,38 @@ class TodoList extends Component {
 		})
 	}
 
-  todoToShow (string) {
-    this.setState({
-      todoToShow: string
-    })
-  }
+	todoToShow(string) {
+		this.setState({
+			todoToShow: string,
+		})
+	}
 
-  removeCompleted = () => {
-    this.setState({
-      todos: this.state.todos.filter( item => !item.complete )
-    })
-  }
+	removeCompleted = () => {
+		this.setState({
+			todos: this.state.todos.filter((item) => !item.complete),
+		})
+	}
 
 	render() {
 		let { todos, todoToShow } = this.state
-    if(todoToShow === "all") {
-      todos = todos
-    } else if (todoToShow === "active") {
-      todos = todos.filter(item => !item.complete)
-    } else if (todoToShow === "complete") {
-      todos = todos.filter(item => item.complete)
-    }
+		if (todoToShow === 'all') {
+			todos = todos
+		} else if (todoToShow === 'active') {
+			todos = todos.filter((item) => !item.complete)
+		} else if (todoToShow === 'complete') {
+			todos = todos.filter((item) => item.complete)
+		}
 
 		return (
 			<>
 				<TodoForm onSubmit={this.addTodo} />
-				{/* {JSON.stringify(todos)} */}
 				<ul className="list-group list-group-flush">
 					{todos.map((item) => (
-						<Todo
+						<TodoItem
 							key={item.id}
 							toggleComplete={() => this.toggleComplete(item.id)}
-							item={item}
-							// text={item.text}
+							text={item.text}
 						/>
-						// <li className="list-group-item">
-						//   <input type="checkbox" name={item.id} key={item.id} />
-						//   <label htmlFor={item.id}>{item.text}</label>
-						// </li>
 					))}
 				</ul>
 				<footer className="card-footer text-muted d-flex justify-content-between align-items-center">
@@ -76,12 +71,28 @@ class TodoList extends Component {
 						{todos.filter((item) => !item.complete).length} items left
 					</span>
 					<div className="d-flex">
-						<button onClick={() => this.todoToShow("all")} className="text-tag">All</button>
-						<button onClick={() => this.todoToShow("active")} className="text-tag px-2">Active</button>
-						<button onClick={() => this.todoToShow("complete")} className="text-tag">Completed</button>
+						<Button>Hi button</Button>
+						<Button primary>Hi button</Button>
+						<button onClick={() => this.todoToShow('all')} className="text-tag">
+							All
+						</button>
+						<button
+							onClick={() => this.todoToShow('active')}
+							className="text-tag px-2"
+						>
+							Active
+						</button>
+						<button
+							onClick={() => this.todoToShow('complete')}
+							className="text-tag"
+						>
+							Completed
+						</button>
 					</div>
-          
-					<button onClick={this.removeCompleted} className="text-tag">Clear Completed</button>
+
+					<button onClick={this.removeCompleted} className="text-tag">
+						Clear Completed
+					</button>
 				</footer>
 			</>
 		)
