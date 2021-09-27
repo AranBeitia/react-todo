@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props)
   }
+  
   render (){
     return (
       <div className="position-relative">
@@ -16,7 +17,6 @@ class App extends Component {
             <h1>TODO</h1>
           </header>
           <TodoList />
-          {/* <TodoFooter /> */}
         </main>
         <footer className="text-center">
           <p>Drag and drop to reorder list</p>
