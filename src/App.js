@@ -2,6 +2,8 @@ import React from 'react'
 import './App.scss'
 
 import Hero from './components/Hero'
+import Input from './components/Input'
+import TodoList from './components/TodoList'
 
 const names = ['Aran', 'Kitty', 'Jane']
 class App extends React.Component {
@@ -10,6 +12,7 @@ class App extends React.Component {
 		this.state = {
 			userName: '',
 			counter: 0,
+			list: [],
 		}
 	}
 
@@ -23,11 +26,18 @@ class App extends React.Component {
 		this.setState({ counter: count })
 	}
 
+	addTask = (value) => {
+		this.setState({ list: [...this.state.list, value] })
+		console.log(this.state.list)
+	}
+
 	render() {
-		const { counter } = this.state
+		const { counter, list } = this.state
 		return (
 			<div className="app">
 				<Hero name={names[counter]} handleclick={this.randomName} />
+				<Input handleEnter={this.addTask} />
+				<TodoList taskList={list} />
 			</div>
 		)
 	}
