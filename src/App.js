@@ -1,29 +1,25 @@
-import React, { Component } from "react";
+import logo from './logo.svg';
+import './App.css';
 
-import TodoList from "./components/TodoList"
-// import TodoFooter from "./components/TodoFooter"
-
-class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
-  render (){
-    return (
-      <div className="position-relative">
-        <section className="padding-15 mb-4 bg-image-hero"></section>
-        <main className="card position-absolute absolute-center">
-          <header className="card-header">
-            <h1>TODO</h1>
-          </header>
-          <TodoList />
-        </main>
-        <footer className="text-center">
-          <p>Drag and drop to reorder list</p>
-        </footer>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
