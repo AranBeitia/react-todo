@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const primaryColor = '#d103fc'
 
@@ -11,9 +11,16 @@ const Button = styled.button`
 	font-weight: 600;
 	cursor: pointer;
 	border: 2px solid ${primaryColor};
-	background: ${(props) => (props.secondary ? primaryColor : 'transparent')};
-	color: ${(props) => (props.secondary ? 'white' : primaryColor)};
+	background: transparent;
+	color: ${primaryColor};
 	transition: all 0.25s ease;
+
+	${(props) =>
+		props.secondary &&
+		css`
+			background: ${primaryColor};
+			color: white;
+		`}
 
 	&:hover {
 		border: 2px solid primaryColor;
