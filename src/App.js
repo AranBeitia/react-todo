@@ -13,8 +13,6 @@ class App extends React.Component {
 			userName: '',
 			counter: 0,
 			list: [],
-			name: '',
-			completed: false,
 		}
 	}
 
@@ -34,12 +32,12 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { counter, list, name } = this.state
+		const { counter, list } = this.state
 		return (
 			<div className="app">
 				<Hero name={names[counter]} handleclick={this.randomName} />
 				<Input handleEnter={this.addTask} />
-				<TodoList name={name} taskList={list} />
+				<TodoList taskList={list} />
 			</div>
 		)
 	}

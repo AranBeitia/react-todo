@@ -3,11 +3,16 @@ import './TodoItem.scss'
 
 class TodoItem extends React.Component {
 	render() {
-		const { todoItem, name } = this.props
+		const { completed, text } = this.props
 		return (
 			<li>
-				<input type="checkbox" className="checkbox" name={name} />
-				{todoItem}
+				<input
+					type="checkbox"
+					className="checkbox"
+					name={text}
+					completed={completed}
+				/>
+				{text}
 			</li>
 		)
 	}
