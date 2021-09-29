@@ -1,0 +1,39 @@
+$size: 0.5rem;
+.input {
+	position: relative;
+
+	&__field {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		border: 0;
+		border-bottom: 2px solid white;
+		padding: calc($size * 1.5) $size;
+		color: white;
+		background: transparent;
+
+		&:focus,
+		&:not(:placeholder-shown) {
+			& + .input__label {
+				transform: translate($size/2, -65%) scale(0.8);
+				color: #7d80aa;
+			}
+		}
+	}
+
+	&__label {
+		position: absolute;
+		left: 0;
+		top: 0;
+		padding: $size / 2;
+		margin: calc($size * 0.75 + 3px) $size / 2;
+		white-space: nowrap;
+		transform: translate(0, 0);
+		transform-origin: 0 0;
+		background: #010319;
+		transition: transform 120ms ease-in;
+		font-size: 1rem;
+		font-weight: bold;
+		line-height: 1.2;
+	}
+}

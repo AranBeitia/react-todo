@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Input.scss'
 class Input extends React.Component {
 	constructor(props) {
 		super(props)
@@ -23,13 +23,17 @@ class Input extends React.Component {
 	render() {
 		const { inputValue } = this.state
 		return (
-			<input
-				type="text"
-				placeholder="insert task here"
-				value={inputValue}
-				onChange={this.handleChange}
-				onKeyDown={this.handleKeyDown}
-			/>
+			<label className="input">
+				<input
+					className="input__field"
+					type="text"
+					placeholder=" "
+					value={inputValue}
+					onChange={this.handleChange}
+					onKeyDown={this.handleKeyDown}
+				/>
+				<span className="input__label">New task</span>
+			</label>
 		)
 	}
 }
