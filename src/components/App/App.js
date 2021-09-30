@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.scss'
 
-import Hero from './components/Hero'
-import Input from './components/Input'
-import TodoList from './components/TodoList'
+import Hero from '../Hero'
+import Input from '../Input'
+import TodoList from '../TodoList'
 
 const names = ['Aran', 'Kitty', 'Jane']
 class App extends React.Component {
@@ -27,8 +27,9 @@ class App extends React.Component {
 	}
 
 	addTask = (value) => {
-		this.setState({ list: [...this.state.list, value] })
-		console.log(this.state.list)
+		this.setState({
+			list: [...this.state.list, value],
+		})
 	}
 
 	render() {

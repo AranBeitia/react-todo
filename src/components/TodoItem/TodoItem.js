@@ -3,11 +3,14 @@ import './TodoItem.scss'
 
 class TodoItem extends React.Component {
 	render() {
-		const { completed, item } = this.props
+		const { item } = this.props
 		return (
-			<li>
-				<input type="checkbox" className="checkbox" completed={completed} />
-				{item}
+			<li className="todo-item">
+				<div className="todo-item">
+					<input type="checkbox" className="checkbox" />
+					<label htmlFor="">{item}</label>
+				</div>
+				<button>&times;</button>
 			</li>
 		)
 	}
