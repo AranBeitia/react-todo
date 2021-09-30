@@ -10,3 +10,37 @@
 #BBC2D8
 #D103FC
 #7D80AA
+
+// Problem specification:
+
+- Task(s) Form
+
+  - title (text)
+  - description (text)
+  - priority (text) (input)
+
+- Task(s) List
+
+  - List
+  - Filter by priority
+
+- Data Storage
+  - localStorage
+
+Starting Strategies:
+
+- A:
+
+  - create harcoded tasks list
+  - create list component
+  - manage filter logic
+
+- B:
+  - decision: manual / (formik)
+  - validations: manual / (yup)
+  - where to manage list
+    - inside page
+    - (root component (app))
+  - handleSubmit
+    - store data when adding
+    - store data before component removal
