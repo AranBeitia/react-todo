@@ -2,7 +2,8 @@ import React from 'react'
 import './App.scss'
 
 import Hero from '../Hero'
-import Input from '../Input'
+import TodoForm from '../TodoForm'
+// import Input from '../Input'
 import TodoList from '../TodoList'
 
 const names = ['Aran', 'Kitty', 'Jane']
@@ -14,6 +15,7 @@ class App extends React.Component {
 			counter: 0,
 			list: [],
 		}
+		this.addTask = this.addTask.bind(this)
 	}
 
 	componentDidMount() {
@@ -26,17 +28,9 @@ class App extends React.Component {
 		this.setState({ counter: count })
 	}
 
-	addTask = (value) => {
-		this.setState({
-			list: [
-				...this.state.list,
-				{
-					text: value,
-					done: false,
-					edited: false,
-				},
-			],
-		})
+	addTask(value) {
+		console.log(value)
+		// this.setState({ list: [...this.state.list, value] })
 	}
 
 	doneTask = (taskId) => {
@@ -50,12 +44,13 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { counter, list, text } = this.state
+		const { counter, list } = this.state
 		return (
 			<div className="app">
 				<Hero name={names[counter]} handleclick={this.randomName} />
-				<Input handleEnter={this.addTask} />
-				<TodoList taskList={list} text={text} />
+				<TodoForm handleSubmit={this.addTask} />
+				{/* <Input handleEnter={this.addTask} /> */}
+				<TodoList taskList={list} />
 			</div>
 		)
 	}
