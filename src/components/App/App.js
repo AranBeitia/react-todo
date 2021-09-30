@@ -15,11 +15,26 @@ class App extends React.Component {
 			counter: 0,
 			list: [],
 		}
-		this.addTask = this.addTask.bind(this)
 	}
 
 	componentDidMount() {
 		this.setState({ userName: names })
+	}
+
+	taskDone = (listItem) => {
+		const newList = this.state.list.map((item) => {
+			if (item.title === listItem.title) {
+				console.log(listItem)
+				return {
+					title: item.title,
+					description: item.description,
+					priority: item.priority + 1,
+				}
+			} else {
+				return item
+			}
+		})
+		this.setState({ list: newList })
 	}
 
 	randomName = () => {
@@ -28,19 +43,9 @@ class App extends React.Component {
 		this.setState({ counter: count })
 	}
 
-	addTask(value) {
-		console.log(value)
-		// this.setState({ list: [...this.state.list, value] })
-	}
-
-	doneTask = (taskId) => {
-		console.log(taskId)
-		// this.setState(this.state.list.map(item => {
-		// 	if(item.id === taskId) {
-		// 		done: !item.done,
-		// 		isEdited: false
-		// 	}
-		// }))
+	addTask = (values) => {
+		const newList = { ...values }
+		this.setState({ list: [...this.state.list, newList] })
 	}
 
 	render() {
@@ -50,7 +55,7 @@ class App extends React.Component {
 				<Hero name={names[counter]} handleclick={this.randomName} />
 				<TodoForm handleSubmit={this.addTask} />
 				{/* <Input handleEnter={this.addTask} /> */}
-				<TodoList taskList={list} />
+				<TodoList taskList={list} hecho={this.taskDone} />
 			</div>
 		)
 	}

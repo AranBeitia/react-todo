@@ -16,6 +16,11 @@
 		font-weight: bold;
 		line-height: 1.2;
 	}
+
+	&:-internal-autofill-selected {
+		background: #010319;
+	}
+
 	&__field {
 		box-sizing: border-box;
 		display: block;
