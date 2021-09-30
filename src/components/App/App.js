@@ -24,17 +24,23 @@ class App extends React.Component {
 	taskDone = (listItem) => {
 		const newList = this.state.list.map((item) => {
 			if (item.title === listItem.title) {
-				console.log(listItem)
 				return {
 					title: item.title,
 					description: item.description,
-					priority: item.priority + 1,
+					priority: item.priority,
+					done: !item.done,
 				}
 			} else {
 				return item
 			}
 		})
 		this.setState({ list: newList })
+	}
+
+	taskDelete = (listItem) => {
+		this.setState({
+			list: this.state.list.filter((item) => item.title !== listItem),
+		})
 	}
 
 	randomName = () => {
@@ -55,7 +61,11 @@ class App extends React.Component {
 				<Hero name={names[counter]} handleclick={this.randomName} />
 				<TodoForm handleSubmit={this.addTask} />
 				{/* <Input handleEnter={this.addTask} /> */}
-				<TodoList taskList={list} hecho={this.taskDone} />
+				<TodoList
+					taskList={list}
+					deleteItem={this.taskDelete}
+					done={this.taskDone}
+				/>
 			</div>
 		)
 	}

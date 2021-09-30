@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 const primaryColor = '#d103fc'
 
-const Button = styled.button`
+export const Button = styled.button`
 	display: block;
 	border-radius: 3px;
 	padding: 0.5rem 1rem;
@@ -28,4 +28,9 @@ const Button = styled.button`
 		color: ${(props) => (props.secondary ? primaryColor : 'white')};
 	}
 `
+
+export const ButtonIcon = styled(Button)`
+	width: 3rem;
+`
+
 export default Button

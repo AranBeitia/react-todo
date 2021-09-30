@@ -2,12 +2,18 @@ import React from 'react'
 import TodoItem from '../TodoItem'
 class TodoList extends React.Component {
 	render() {
-		const { taskList, hecho } = this.props
+		const { taskList, deleteItem, done } = this.props
 
 		return (
 			<ul>
 				{taskList.map((item, id) => (
-					<TodoItem key={`item-${id}`} title={item.title} hecho={hecho} />
+					<TodoItem
+						key={`item-${id}`}
+						title={item.title}
+						done={item.done}
+						handleDone={done}
+						handleDelete={deleteItem}
+					/>
 				))}
 			</ul>
 		)

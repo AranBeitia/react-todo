@@ -11,6 +11,7 @@ const initValues = {
 	title: '',
 	description: '',
 	priority: 0,
+	done: false,
 }
 
 class TodoForm extends React.Component {

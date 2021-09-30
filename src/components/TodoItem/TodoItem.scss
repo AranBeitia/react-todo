@@ -2,9 +2,12 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
 
-	&__text {
-	}
+.--is-disabled {
+	pointer-events: none;
+	opacity: 0.5;
+	text-decoration: line-through;
 }
 
 .checkbox {
