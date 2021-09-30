@@ -1,37 +1,73 @@
-import React, { Component } from "react";
-import shortid from "shortid";
+import React from 'react'
+import { TodoItemSchema } from './schema'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 
-class TodoForm extends Component{
-  constructor(props) {
-    super(props)
-    this.state = {text:""}
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+import '../Input/Input.scss'
+import './TodoForm.scss'
 
-  handleSubmit(e){
-    e.preventDefault();
-    this.props.onSubmit({
-      id: shortid.generate(),
-      text: this.state.text,
-      completed: false,
-    })
-    this.setState({text:""})
-  }
+import Button from '../Button'
 
-  handleChange(e){
-    this.setState({[e.target.name] : e.target.value});
-  }
+const initValues = {
+	title: '',
+	description: '',
+	priority: 0,
+}
 
-  render() {
-    const {text} = this.state;
-    return(
-      <form onSubmit={this.handleSubmit} className="card-body">
-        <input className="input" type="text" placeholder="insert text here" value={text} name="text" onChange={this.handleChange}/>
-
-      </form>
-    )
-  }
+class TodoForm extends React.Component {
+	render() {
+		const { handleSubmit } = this.props
+		return (
+			<Formik
+				initialValues={initValues}
+				validationSchema={TodoItemSchema}
+				onSubmit={handleSubmit}
+			>
+				{({ values, errors, handleSubmit, isSubmitting }) => (
+					<Form>
+						<div className="form-group">
+							<label className="input" htmlFor="title">
+								<Field
+									id="title"
+									type="text"
+									name="title"
+									className="input__field"
+								/>
+								<span className="input__label">Title</span>
+							</label>
+							<ErrorMessage name="title" component="p" />
+						</div>
+						<div className="form-group">
+							<label className="input" htmlFor="description">
+								<Field
+									id="description"
+									type="text"
+									name="description"
+									className="input__field"
+								/>
+								<span className="input__label">Description</span>
+							</label>
+							<ErrorMessage name="description" component="p" />
+						</div>
+						<div className="form-group">
+							<label className="input" htmlFor="priority">
+								<Field
+									id="priority"
+									type="number"
+									name="priority"
+									className="input__field"
+								/>
+								<span className="input__label">Priority</span>
+							</label>
+							<ErrorMessage name="priority" component="p" />
+						</div>
+						<div className="form-group">
+							<Button type="submit">Add task</Button>
+						</div>
+					</Form>
+				)}
+			</Formik>
+		)
+	}
 }
 
 export default TodoForm

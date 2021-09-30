@@ -1,0 +1,43 @@
+.todo-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__text {
+	}
+}
+
+.checkbox {
+	$size: 1.3rem;
+	width: $size;
+	height: $size;
+	border-radius: 50%;
+	border: 2px solid #a76bef;
+	transition: box-shadow 0.3s;
+	background: lightgrey;
+	cursor: pointer;
+	appearance: none;
+}
+
+.checkbox:checked {
+	box-shadow: inset 0 0 0 1.25rem #a76bef;
+}
+
+// <li className="list-group-item d-flex justify-content-between align-items-center" key={item.id}>
+//   <div className="d-flex align-items-center">
+//     <input
+//       className="checkbox"
+//       type="checkbox"
+//       name={item.id}
+//       onClick={() => this.toggleCompleted(item.id)}
+//     />
+//     <label
+//       className={`ml-2 mb-0 ${item.completed ? "is-disabled": ""}`}
+//       contentEditable="true"
+//       htmlFor={item.id}
+//     >
+//       {item.text}
+//     </label>
+//   </div>
+//   <Button onClick={() => this.onDelete(item.id)}>&times;</Button>
+// </li>
