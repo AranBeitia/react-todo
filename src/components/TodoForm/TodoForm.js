@@ -1,6 +1,7 @@
 import React from 'react'
 import { TodoItemSchema } from './schema'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { v4 as uuid } from 'uuid'
 
 import '../Input/Input.scss'
 import './TodoForm.scss'
@@ -8,6 +9,7 @@ import './TodoForm.scss'
 import Button from '../Button'
 
 const initValues = {
+	id: uuid(),
 	title: '',
 	description: '',
 	priority: 0,

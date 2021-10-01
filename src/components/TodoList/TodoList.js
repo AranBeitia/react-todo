@@ -6,9 +6,10 @@ class TodoList extends React.Component {
 
 		return (
 			<ul>
-				{taskList.map((item, id) => (
+				{taskList.map((item, index) => (
 					<TodoItem
-						key={`item-${id}`}
+						key={`${index}-${item.id}`}
+						id={item.id}
 						title={item.title}
 						done={item.done}
 						handleDone={done}

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import './App.scss'
 
 import Hero from '../Hero'
@@ -21,10 +22,12 @@ class App extends React.Component {
 		this.setState({ userName: names })
 	}
 
-	taskDone = (listItem) => {
+	taskDone = (itemId) => {
+		console.log(itemId)
 		const newList = this.state.list.map((item) => {
-			if (item.title === listItem.title) {
+			if (item.id === itemId) {
 				return {
+					id: item.id,
 					title: item.title,
 					description: item.description,
 					priority: item.priority,
@@ -37,9 +40,9 @@ class App extends React.Component {
 		this.setState({ list: newList })
 	}
 
-	taskDelete = (listItem) => {
+	taskDelete = (itemId) => {
 		this.setState({
-			list: this.state.list.filter((item) => item.title !== listItem),
+			list: this.state.list.filter((item) => item.id !== itemId),
 		})
 	}
 
