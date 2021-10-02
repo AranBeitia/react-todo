@@ -12,6 +12,7 @@ const initValues = {
 	title: '',
 	description: '',
 	priority: 0,
+	isEditable: false,
 	done: false,
 }
 
@@ -25,7 +26,7 @@ class TodoForm extends React.Component {
 				onSubmit={handleSubmit}
 			>
 				{({ values, errors, handleSubmit, isSubmitting }) => (
-					<Form class="form">
+					<Form className="form">
 						<div className="form__group">
 							<label className="input" htmlFor="title">
 								<Field

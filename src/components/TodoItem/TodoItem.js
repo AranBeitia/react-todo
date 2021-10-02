@@ -11,8 +11,13 @@ class TodoItem extends React.Component {
 		this.props.handleDelete(id)
 	}
 
+	taskEdit = (id) => {
+		this.props.handleEdit(id)
+		console.log('edit task')
+	}
+
 	render() {
-		const { title, done, id } = this.props
+		const { id, title, done, isEditable } = this.props
 		return (
 			<li className="todo-item flex-between-center">
 				<div className="flex-between-center">
@@ -22,14 +27,20 @@ class TodoItem extends React.Component {
 						name={title}
 						onClick={() => this.taskDone(id)}
 					/>
-					<label
-						htmlFor={title}
-						className={`todo-item__label ${done ? '--is-disabled' : ''}`}
-					>
-						{title}
-					</label>
+					{!isEditable && (
+						<label
+							htmlFor={title}
+							className={`todo-item__label ${done ? '--is-disabled' : ''}`}
+						>
+							{title}
+						</label>
+					)}
+					{isEditable && <input type="text" />}
 				</div>
-				<ButtonIcon onClick={() => this.taskDelete(id)}>&times;</ButtonIcon>
+				<div className="flex-end">
+					<ButtonIcon onClick={() => this.taskEdit(id)}>&#9998;</ButtonIcon>
+					<ButtonIcon onClick={() => this.taskDelete(id)}>&times;</ButtonIcon>
+				</div>
 			</li>
 		)
 	}

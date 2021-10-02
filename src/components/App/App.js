@@ -32,10 +32,7 @@ class App extends React.Component {
 		const newList = this.state.list.map((item) => {
 			if (item.id === itemId) {
 				return {
-					id: item.id,
-					title: item.title,
-					description: item.description,
-					priority: item.priority,
+					...item,
 					done: !item.done,
 				}
 			} else {
@@ -51,9 +48,22 @@ class App extends React.Component {
 		})
 	}
 
+	taskEdit = (itemId) => {
+		const newList = this.state.list.map((item) => {
+			if (item.id === itemId) {
+				return {
+					...item,
+					isEditable: !item.isEditable,
+				}
+			} else {
+				return item
+			}
+		})
+		this.setState({ list: newList })
+	}
+
 	addTask = (values) => {
 		const newList = { ...values, id: uuid() }
-		console.log(newList)
 		this.setState({ list: [...this.state.list, newList] })
 	}
 
@@ -67,6 +77,7 @@ class App extends React.Component {
 				<TodoList
 					taskList={list}
 					deleteItem={this.taskDelete}
+					editItem={this.taskEdit}
 					done={this.taskDone}
 				/>
 			</div>

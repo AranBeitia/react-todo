@@ -5,7 +5,7 @@ import './TodoList.scss'
 import TodoItem from '../TodoItem'
 class TodoList extends React.Component {
 	render() {
-		const { taskList, deleteItem, done } = this.props
+		const { taskList, deleteItem, editItem, done } = this.props
 
 		return (
 			<section className="todo-list">
@@ -17,8 +17,10 @@ class TodoList extends React.Component {
 							id={item.id}
 							title={item.title}
 							done={item.done}
+							isEditable={item.isEditable}
 							handleDone={done}
 							handleDelete={deleteItem}
+							handleEdit={editItem}
 						/>
 					))}
 				</ul>
