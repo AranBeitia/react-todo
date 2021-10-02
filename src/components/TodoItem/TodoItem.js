@@ -13,7 +13,6 @@ class TodoItem extends React.Component {
 
 	taskEdit = (id) => {
 		this.props.handleEdit(id)
-		console.log('edit task')
 	}
 
 	render() {

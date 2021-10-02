@@ -1,5 +1,9 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from '../Theme/Global.styles'
+import { lightTheme, darkTheme } from '../Theme/Theme'
+
 import './App.scss'
 
 import Hero from '../Hero'
@@ -12,6 +16,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
+			theme: 'dark',
 			userName: '',
 			counter: 0,
 			list: [],
@@ -39,6 +44,7 @@ class App extends React.Component {
 				return item
 			}
 		})
+		console.log(newList)
 		this.setState({ list: newList })
 	}
 
@@ -68,19 +74,24 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { counter, list } = this.state
+		const { counter, list, theme } = this.state
+		const themeMode = theme === 'light' ? lightTheme : darkTheme
+
 		return (
-			<div className="app">
-				<Hero name={names[counter]} handleclick={this.randomName} />
-				<TodoForm handleSubmit={this.addTask} />
-				{/* <Input handleEnter={this.addTask} /> */}
-				<TodoList
-					taskList={list}
-					deleteItem={this.taskDelete}
-					editItem={this.taskEdit}
-					done={this.taskDone}
-				/>
-			</div>
+			<ThemeProvider theme={themeMode}>
+				<GlobalStyles />
+				<div className="app">
+					<Hero name={names[counter]} handleclick={this.randomName} />
+					<TodoForm handleSubmit={this.addTask} />
+					{/* <Input handleEnter={this.addTask} /> */}
+					<TodoList
+						taskList={list}
+						deleteItem={this.taskDelete}
+						editItem={this.taskEdit}
+						done={this.taskDone}
+					/>
+				</div>
+			</ThemeProvider>
 		)
 	}
 }
