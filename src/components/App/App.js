@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { v4 as uuid } from 'uuid'
 import './App.scss'
 
 import Hero from '../Hero'
@@ -23,7 +23,6 @@ class App extends React.Component {
 	}
 
 	taskDone = (itemId) => {
-		console.log(itemId)
 		const newList = this.state.list.map((item) => {
 			if (item.id === itemId) {
 				return {
@@ -53,7 +52,8 @@ class App extends React.Component {
 	}
 
 	addTask = (values) => {
-		const newList = { ...values }
+		const newList = { ...values, id: uuid() }
+		console.log(newList)
 		this.setState({ list: [...this.state.list, newList] })
 	}
 

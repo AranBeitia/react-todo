@@ -1,7 +1,6 @@
 import React from 'react'
 import { TodoItemSchema } from './schema'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { v4 as uuid } from 'uuid'
 
 import '../Input/Input.scss'
 import './TodoForm.scss'
@@ -9,7 +8,7 @@ import './TodoForm.scss'
 import Button from '../Button'
 
 const initValues = {
-	id: uuid(),
+	id: '',
 	title: '',
 	description: '',
 	priority: 0,
@@ -34,6 +33,7 @@ class TodoForm extends React.Component {
 									type="text"
 									name="title"
 									className="input__field"
+									placeholder=" "
 								/>
 								<span className="input__label">Title</span>
 							</label>
@@ -46,18 +46,20 @@ class TodoForm extends React.Component {
 									type="text"
 									name="description"
 									className="input__field"
+									placeholder=" "
 								/>
 								<span className="input__label">Description</span>
 							</label>
 							<ErrorMessage name="description" component="p" />
 						</div>
 						<div className="form-group">
-							<label className="input" htmlFor="priority">
+							<label className="input">
 								<Field
 									id="priority"
 									type="number"
 									name="priority"
 									className="input__field"
+									placeholder=" "
 								/>
 								<span className="input__label">Priority</span>
 							</label>
