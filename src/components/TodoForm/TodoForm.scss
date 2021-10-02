@@ -1,7 +1,12 @@
-form {
+.form {
 	padding: 1rem;
-}
 
-.form-group {
-	padding: 1rem 0;
+	&__group {
+		padding: 1rem 0;
+	}
+
+	&__error {
+		font-size: 0.7rem;
+		margin-top: 0.3rem;
+	}
 }

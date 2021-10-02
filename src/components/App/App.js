@@ -22,6 +22,12 @@ class App extends React.Component {
 		this.setState({ userName: names })
 	}
 
+	randomName = () => {
+		let count = this.state.counter + 1
+		count = count % names.length
+		this.setState({ counter: count })
+	}
+
 	taskDone = (itemId) => {
 		const newList = this.state.list.map((item) => {
 			if (item.id === itemId) {
@@ -43,12 +49,6 @@ class App extends React.Component {
 		this.setState({
 			list: this.state.list.filter((item) => item.id !== itemId),
 		})
-	}
-
-	randomName = () => {
-		let count = this.state.counter + 1
-		count = count % names.length
-		this.setState({ counter: count })
 	}
 
 	addTask = (values) => {

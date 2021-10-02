@@ -1,8 +1,8 @@
+@use '../../assets/styles/abstracts' as var;
+
 .app {
-	max-width: 40rem;
+	max-width: var.$width-desktop;
 	width: 100%;
 	min-height: 100vh;
 	margin: auto;
-	font-size: calc(10px + 2vmin);
-	color: white;
 }

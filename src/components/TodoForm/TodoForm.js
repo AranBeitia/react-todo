@@ -25,8 +25,8 @@ class TodoForm extends React.Component {
 				onSubmit={handleSubmit}
 			>
 				{({ values, errors, handleSubmit, isSubmitting }) => (
-					<Form>
-						<div className="form-group">
+					<Form class="form">
+						<div className="form__group">
 							<label className="input" htmlFor="title">
 								<Field
 									id="title"
@@ -37,9 +37,13 @@ class TodoForm extends React.Component {
 								/>
 								<span className="input__label">Title</span>
 							</label>
-							<ErrorMessage name="title" component="p" />
+							<ErrorMessage
+								name="title"
+								component="p"
+								className="form__error"
+							/>
 						</div>
-						<div className="form-group">
+						<div className="form__group">
 							<label className="input" htmlFor="description">
 								<Field
 									id="description"
@@ -50,9 +54,13 @@ class TodoForm extends React.Component {
 								/>
 								<span className="input__label">Description</span>
 							</label>
-							<ErrorMessage name="description" component="p" />
+							<ErrorMessage
+								name="description"
+								component="p"
+								className="form__error"
+							/>
 						</div>
-						<div className="form-group">
+						{/* <div className="form__group">
 							<label className="input">
 								<Field
 									id="priority"
@@ -64,8 +72,8 @@ class TodoForm extends React.Component {
 								<span className="input__label">Priority</span>
 							</label>
 							<ErrorMessage name="priority" component="p" />
-						</div>
-						<div className="form-group">
+						</div> */}
+						<div className="form__group">
 							<Button type="submit">Add task</Button>
 						</div>
 					</Form>

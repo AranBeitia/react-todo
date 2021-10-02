@@ -1,9 +1,15 @@
+@use '../../assets/styles/abstracts' as var;
+
 h1 {
 	padding: 1rem;
+
+	@media all and (max-width: 480px) {
+		padding: 1rem 0;
+	}
 }
 
 .text-highlight {
-	color: #d103fc;
+	color: var.$color-primary;
 }
 
 .header-center {

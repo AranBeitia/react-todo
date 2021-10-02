@@ -14,15 +14,18 @@ class TodoItem extends React.Component {
 	render() {
 		const { title, done, id } = this.props
 		return (
-			<li className="todo-item">
-				<div className="todo-item">
+			<li className="todo-item flex-between-center">
+				<div className="flex-between-center">
 					<input
 						type="checkbox"
 						className="checkbox"
 						name={title}
 						onClick={() => this.taskDone(id)}
 					/>
-					<label htmlFor={title} className={`${done ? '--is-disabled' : ''}`}>
+					<label
+						htmlFor={title}
+						className={`todo-item__label ${done ? '--is-disabled' : ''}`}
+					>
 						{title}
 					</label>
 				</div>

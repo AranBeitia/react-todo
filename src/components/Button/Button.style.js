@@ -6,7 +6,6 @@ export const Button = styled.button`
 	display: block;
 	border-radius: 3px;
 	padding: 0.5rem 1rem;
-	margin: 0%.5rem 1rem;
 	width: 10rem;
 	font-weight: 600;
 	cursor: pointer;
@@ -30,7 +29,8 @@ export const Button = styled.button`
 `
 
 export const ButtonIcon = styled(Button)`
-	width: 3rem;
+	width: 2rem;
+	padding: 0.2rem;
 `
 
 export default Button
