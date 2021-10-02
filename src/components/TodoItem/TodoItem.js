@@ -1,4 +1,5 @@
 import React from 'react'
+import { Draggable } from 'react-beautiful-dnd'
 import './TodoItem.scss'
 
 import { ButtonSmall } from '../Button/Button.style'
@@ -16,31 +17,45 @@ class TodoItem extends React.Component {
 	}
 
 	render() {
-		const { id, title, done, isEditable } = this.props
+		const { id, title, done, isEditable, index } = this.props
 		return (
-			<li className="todo-item flex-between-center">
-				<div className="flex-between-center">
-					<input
-						type="checkbox"
-						className="checkbox"
-						name={title}
-						onClick={() => this.taskDone(id)}
-					/>
-					{!isEditable && (
-						<label
-							htmlFor={title}
-							className={`todo-item__label ${done ? '--is-disabled' : ''}`}
-						>
-							{title}
-						</label>
-					)}
-					{isEditable && <input type="text" />}
-				</div>
-				<div className="flex-end">
-					<ButtonSmall onClick={() => this.taskEdit(id)}>&#9998;</ButtonSmall>
-					<ButtonSmall onClick={() => this.taskDelete(id)}>&times;</ButtonSmall>
-				</div>
-			</li>
+			<Draggable key={id} draggableId={id} index={index}>
+				{(provided) => (
+					<li
+						key={id}
+						{...provided.draggableProps}
+						ref={provided.innerRef}
+						{...provided.dragHandleProps}
+						className="todo-item flex-between-center"
+					>
+						<div className="flex-between-center">
+							<input
+								type="checkbox"
+								className="checkbox"
+								name={title}
+								onClick={() => this.taskDone(id)}
+							/>
+							{!isEditable && (
+								<label
+									htmlFor={title}
+									className={`todo-item__label ${done ? '--is-disabled' : ''}`}
+								>
+									{title}
+								</label>
+							)}
+							{isEditable && <input type="text" />}
+						</div>
+						<div className="flex-end">
+							<ButtonSmall onClick={() => this.taskEdit(id)}>
+								&#9998;
+							</ButtonSmall>
+							<ButtonSmall onClick={() => this.taskDelete(id)}>
+								&times;
+							</ButtonSmall>
+						</div>
+					</li>
+				)}
+			</Draggable>
 		)
 	}
 }
