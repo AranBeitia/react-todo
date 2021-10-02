@@ -2,9 +2,6 @@ import React from 'react'
 import './Hero.scss'
 import { Button, ButtonIcon } from '../Button/Button.style'
 class Hero extends React.Component {
-	// toggleTheme = () => {
-	// 	console.log('theme')
-	// }
 	render() {
 		const { name, handleclick, handleTheme, theme } = this.props
 		const icon = theme === 'light' ? '&#9788;' : '&#9790;'

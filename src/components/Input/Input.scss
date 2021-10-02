@@ -30,14 +30,11 @@
 		padding: calc(0.5rem * 1.5) 0.5rem;
 		color: white;
 		background: transparent;
-		// transition: 0.5s all ease-out;
 
 		&:focus,
 		&:not(:placeholder-shown) {
 			& + .input__label {
 				transform: translate(0, -80%) scale(0.8);
-				// padding: 0;
-				// margin: 0;
 				color: #7d80aa;
 			}
 		}

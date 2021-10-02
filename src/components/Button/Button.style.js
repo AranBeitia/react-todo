@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components'
 
-const primaryColor = '#d103fc'
-
 export const Button = styled.button`
 	display: block;
 	border-radius: 3px;
@@ -9,22 +7,23 @@ export const Button = styled.button`
 	width: 10rem;
 	font-weight: 600;
 	cursor: pointer;
-	border: 2px solid ${primaryColor};
+	border: 2px solid ${({ theme }) => theme.text};
 	background: transparent;
-	color: ${primaryColor};
+	color: ${({ theme }) => theme.text};
 	transition: all 0.25s ease;
 
 	${(props) =>
 		props.secondary &&
 		css`
-			background: ${primaryColor};
+			background: ${({ theme }) => theme.text};
 			color: white;
 		`}
 
 	&:hover {
-		border: 2px solid primaryColor;
-		background: ${(props) => (props.secondary ? 'transparent' : primaryColor)};
-		color: ${(props) => (props.secondary ? primaryColor : 'white')};
+		border: 2px solid ${(props) => props.theme.background};
+		background: ${(props) =>
+			props.secondary ? 'transparent' : props.theme.background};
+		color: ${(props) => (props.secondary ? props.theme.background : 'white')};
 	}
 `
 
