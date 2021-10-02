@@ -27,6 +27,11 @@ class App extends React.Component {
 		this.setState({ userName: names })
 	}
 
+	toggleTheme = () => {
+		if (this.state.theme === 'dark') this.setState({ theme: 'light' })
+		if (this.state.theme === 'light') this.setState({ theme: 'dark' })
+	}
+
 	randomName = () => {
 		let count = this.state.counter + 1
 		count = count % names.length
@@ -81,7 +86,11 @@ class App extends React.Component {
 			<ThemeProvider theme={themeMode}>
 				<GlobalStyles />
 				<div className="app">
-					<Hero name={names[counter]} handleclick={this.randomName} />
+					<Hero
+						name={names[counter]}
+						handleclick={this.randomName}
+						handleTheme={this.toggleTheme}
+					/>
 					<TodoForm handleSubmit={this.addTask} />
 					{/* <Input handleEnter={this.addTask} /> */}
 					<TodoList

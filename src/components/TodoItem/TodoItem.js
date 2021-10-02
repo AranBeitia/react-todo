@@ -1,7 +1,7 @@
 import React from 'react'
 import './TodoItem.scss'
 
-import { ButtonIcon } from '../Button/Button.style'
+import { ButtonSmall } from '../Button/Button.style'
 class TodoItem extends React.Component {
 	taskDone = (id) => {
 		this.props.handleDone(id)
@@ -37,8 +37,8 @@ class TodoItem extends React.Component {
 					{isEditable && <input type="text" />}
 				</div>
 				<div className="flex-end">
-					<ButtonIcon onClick={() => this.taskEdit(id)}>&#9998;</ButtonIcon>
-					<ButtonIcon onClick={() => this.taskDelete(id)}>&times;</ButtonIcon>
+					<ButtonSmall onClick={() => this.taskEdit(id)}>&#9998;</ButtonSmall>
+					<ButtonSmall onClick={() => this.taskDelete(id)}>&times;</ButtonSmall>
 				</div>
 			</li>
 		)

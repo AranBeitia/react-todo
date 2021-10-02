@@ -1,13 +1,16 @@
 import React from 'react'
 import './Hero.scss'
-import Button from '../Button'
+import { Button, ButtonIcon } from '../Button/Button.style'
 class Hero extends React.Component {
+	// toggleTheme = () => {
+	// 	console.log('theme')
+	// }
 	render() {
-		const { name, handleclick } = this.props
+		const { name, handleclick, handleTheme, theme } = this.props
+		const icon = theme === 'light' ? '&#9788;' : '&#9790;'
 		return (
 			<header className="header-center">
-				<span>&#9788;</span>
-				<span>&#9790;</span>
+				<ButtonIcon onClick={handleTheme}>{icon}</ButtonIcon>
 				<h1>
 					What's up, <span className="text-highlight">{name}</span>!
 				</h1>

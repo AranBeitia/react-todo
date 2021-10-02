@@ -28,6 +28,11 @@ export const Button = styled.button`
 	}
 `
 
+export const ButtonSmall = styled(Button)`
+	width: 2rem;
+	padding: 0.2rem;
+`
+
 export const ButtonIcon = styled(Button)`
 	width: 2rem;
 	padding: 0.2rem;
