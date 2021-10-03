@@ -28,13 +28,10 @@ export const Button = styled.button`
 `
 
 export const ButtonSmall = styled(Button)`
-	width: 2rem;
+	width: 1.5rem;
+	height: 1.5rem;
 	padding: 0.2rem;
-`
-
-export const ButtonIcon = styled(Button)`
-	width: 2rem;
-	padding: 0.2rem;
+	font-size: 0.5rem;
 `
 
 export default Button

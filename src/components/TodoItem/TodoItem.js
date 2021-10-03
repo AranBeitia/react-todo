@@ -46,12 +46,14 @@ class TodoItem extends React.Component {
 							{isEditable && <input type="text" />}
 						</div>
 						<div className="flex-end">
-							<ButtonSmall onClick={() => this.taskEdit(id)}>
-								&#9998;
-							</ButtonSmall>
-							<ButtonSmall onClick={() => this.taskDelete(id)}>
-								&times;
-							</ButtonSmall>
+							<ButtonSmall
+								className="icon-pencil mr-1"
+								onClick={() => this.taskEdit(id)}
+							></ButtonSmall>
+							<ButtonSmall
+								className="icon-cross"
+								onClick={() => this.taskDelete(id)}
+							></ButtonSmall>
 						</div>
 					</li>
 				)}

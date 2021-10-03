@@ -8,6 +8,16 @@ h1 {
 	}
 }
 
+.icon-theme {
+	font-size: 1.6rem;
+	cursor: pointer;
+	transition: all 120ms ease-in;
+
+	&:hover {
+		transform: scale(1.5);
+	}
+}
+
 .text-highlight {
 	color: var.$color-primary;
 }
