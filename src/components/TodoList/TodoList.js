@@ -3,6 +3,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 import './TodoList.scss'
 
+import FilterList from '../FilterList'
 import TodoItem from '../TodoItem'
 class TodoList extends React.Component {
 	render() {
@@ -10,7 +11,7 @@ class TodoList extends React.Component {
 
 		return (
 			<section className="todo-list">
-				<h2 className="todo-list__title">Today's tasks</h2>
+				{taskList.length > 0 && <FilterList taskList={taskList} />}
 				<DragDropContext
 					onDragEnd={(result) => {
 						const { source, destination } = result

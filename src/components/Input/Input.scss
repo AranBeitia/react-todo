@@ -10,7 +10,6 @@
 		white-space: nowrap;
 		transform: translate(0, 0);
 		transform-origin: 0 0;
-		background: #010319;
 		transition: transform 120ms ease-in;
 		font-size: 1rem;
 		font-weight: bold;
@@ -39,4 +38,8 @@
 			}
 		}
 	}
+}
+
+input:-internal-autofill-selected {
+	background-color: #010319 !important;
 }
