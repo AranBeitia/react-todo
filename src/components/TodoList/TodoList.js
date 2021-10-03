@@ -19,13 +19,11 @@ class TodoList extends React.Component {
 
 		return (
 			<section className="todo-list">
-				{taskList.length > 0 && (
-					<FilterList
-						taskList={taskList}
-						clearCompleted={clearCompleted}
-						handleFilter={handleFilter}
-					/>
-				)}
+				<FilterList
+					taskList={taskList}
+					clearCompleted={clearCompleted}
+					handleFilter={handleFilter}
+				/>
 				<DragDropContext
 					onDragEnd={(result) => {
 						const { source, destination } = result

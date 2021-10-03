@@ -16,9 +16,10 @@ class App extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			theme: 'dark',
 			userName: '',
 			counter: 0,
+			theme: 'dark',
+			showItems: 'all',
 			list: [],
 		}
 	}
@@ -49,15 +50,7 @@ class App extends React.Component {
 	}
 
 	handleFilter = (filterName) => {
-		if (filterName === 'all') {
-			this.setState({ list: this.state.list })
-		}
-		if (filterName === 'actived') {
-			this.setState({ list: this.state.list.filter((item) => !item.done) })
-		}
-		if (filterName === 'completed') {
-			this.setState({ list: this.state.list.filter((item) => item.done) })
-		}
+		this.setState({ showItems: filterName })
 	}
 
 	clearCompleted = () => {
@@ -104,8 +97,17 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { counter, list, theme } = this.state
+		const { counter, theme } = this.state
 		const themeMode = theme === 'light' ? lightTheme : darkTheme
+		let { list, showItems } = this.state
+
+		if (showItems === 'all') {
+			list = this.state.list
+		} else if (showItems === 'actived') {
+			list = list.filter((item) => !item.done)
+		} else if (showItems === 'completed') {
+			list = list.filter((item) => item.done)
+		}
 
 		return (
 			<ThemeProvider theme={themeMode}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Filter, FilterLink } from './Filter.style'
+import { Filter, FilterLink } from './FilterList.style'
 import FilterItem from './FilterItem'
 class FilterList extends React.Component {
 	render() {
