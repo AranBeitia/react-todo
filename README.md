@@ -1,46 +1,14 @@
-### `npm start`
+# REACT - TO DO list
 
-### color palette
+## Color Reference
 
-#4f74ff
-#010319
-#0A155A
-#3D47Af
-#48466B
-#BBC2D8
-#D103FC
-#7D80AA
+| Color           | Hex                                                              |
+| --------------- | ---------------------------------------------------------------- |
+| Primary Color   | ![#D103FC](https://via.placeholder.com/10/0a192f?text=+) #D103FC |
+| Primary light   | ![#7d80aa](https://via.placeholder.com/10/00b48a?text=+) #7d80aa |
+| secondary Color | ![#010319](https://via.placeholder.com/10/f8f8f8?text=+) #010319 |
+| secondary light | ![#0a155a](https://via.placeholder.com/10/00b48a?text=+) #0a155a |
 
-// Problem specification:
+## Demo
 
-- Task(s) Form
-
-  - title (text)
-  - description (text)
-  - priority (text) (input)
-
-- Task(s) List
-
-  - List
-  - Filter by priority
-
-- Data Storage
-  - localStorage
-
-Starting Strategies:
-
-- A:
-
-  - create harcoded tasks list
-  - create list component
-  - manage filter logic
-
-- B:
-  - decision: manual / (formik)
-  - validations: manual / (yup)
-  - where to manage list
-    - inside page
-    - (root component (app))
-  - handleSubmit
-    - store data when adding
-    - store data before component removal
+Insert gif or link to demo
