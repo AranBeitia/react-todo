@@ -10,6 +10,10 @@ export const Filter = styled.nav`
 	color: ${({ theme }) => theme.text};
 `
 
-export const FilterItem = styled.li`
-	padding: 0 0.5rem;
+export const FilterLink = styled.span`
+	cursor: pointer;
+
+	&:hover {
+		color: ${({ theme }) => theme.toggleBorder};
+	}
 `

@@ -48,6 +48,22 @@ class App extends React.Component {
 		}))
 	}
 
+	handleFilter = (filterName) => {
+		if (filterName === 'all') {
+			this.setState({ list: this.state.list })
+		}
+		if (filterName === 'actived') {
+			this.setState({ list: this.state.list.filter((item) => !item.done) })
+		}
+		if (filterName === 'completed') {
+			this.setState({ list: this.state.list.filter((item) => item.done) })
+		}
+	}
+
+	clearCompleted = () => {
+		this.setState({ list: this.state.list.filter((item) => !item.done) })
+	}
+
 	taskDone = (itemId) => {
 		const newList = this.state.list.map((item) => {
 			if (item.id === itemId) {
@@ -59,7 +75,6 @@ class App extends React.Component {
 				return item
 			}
 		})
-		console.log(newList)
 		this.setState({ list: newList })
 	}
 
@@ -109,6 +124,8 @@ class App extends React.Component {
 						editItem={this.taskEdit}
 						done={this.taskDone}
 						saveOrderTasks={this.saveOrderTasks}
+						clearCompleted={this.clearCompleted}
+						handleFilter={this.handleFilter}
 					/>
 				</div>
 			</ThemeProvider>

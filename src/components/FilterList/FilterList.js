@@ -1,18 +1,18 @@
 import React from 'react'
-import { Filter, FilterItem } from './Filter.style'
-
+import { Filter, FilterLink } from './Filter.style'
+import FilterItem from './FilterItem'
 class FilterList extends React.Component {
 	render() {
-		const { taskList } = this.props
+		const { taskList, clearCompleted, handleFilter } = this.props
 		return (
 			<Filter>
 				<span>{taskList.length} items left</span>
 				<ul className="flex">
-					<FilterItem>All</FilterItem>
-					<FilterItem>Actived</FilterItem>
-					<FilterItem>Completed</FilterItem>
+					<FilterItem name="all" handleFilter={handleFilter} />
+					<FilterItem name="actived" handleFilter={handleFilter} />
+					<FilterItem name="completed" handleFilter={handleFilter} />
 				</ul>
-				<span>Clear completed</span>
+				<FilterLink onClick={clearCompleted}>Clear completed</FilterLink>
 			</Filter>
 		)
 	}

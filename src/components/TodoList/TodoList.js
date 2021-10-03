@@ -7,11 +7,25 @@ import FilterList from '../FilterList'
 import TodoItem from '../TodoItem'
 class TodoList extends React.Component {
 	render() {
-		const { taskList, deleteItem, editItem, done, saveOrderTasks } = this.props
+		const {
+			taskList,
+			deleteItem,
+			editItem,
+			done,
+			saveOrderTasks,
+			clearCompleted,
+			handleFilter,
+		} = this.props
 
 		return (
 			<section className="todo-list">
-				{taskList.length > 0 && <FilterList taskList={taskList} />}
+				{taskList.length > 0 && (
+					<FilterList
+						taskList={taskList}
+						clearCompleted={clearCompleted}
+						handleFilter={handleFilter}
+					/>
+				)}
 				<DragDropContext
 					onDragEnd={(result) => {
 						const { source, destination } = result
@@ -38,6 +52,7 @@ class TodoList extends React.Component {
 										handleDone={done}
 										handleDelete={deleteItem}
 										handleEdit={editItem}
+										handleFilter={handleFilter}
 									/>
 								))}
 								{provided.placeholder}
