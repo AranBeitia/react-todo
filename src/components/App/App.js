@@ -38,6 +38,16 @@ class App extends React.Component {
 		this.setState({ counter: count })
 	}
 
+	saveOrderTasks = (taskList, startIndex, endIndex) => {
+		const result = [...taskList]
+		const [removed] = result.splice(startIndex, 1)
+		result.splice(endIndex, 0, removed)
+		this.setState((prevState) => ({
+			...prevState,
+			list: result,
+		}))
+	}
+
 	taskDone = (itemId) => {
 		const newList = this.state.list.map((item) => {
 			if (item.id === itemId) {
@@ -98,6 +108,7 @@ class App extends React.Component {
 						deleteItem={this.taskDelete}
 						editItem={this.taskEdit}
 						done={this.taskDone}
+						saveOrderTasks={this.saveOrderTasks}
 					/>
 				</div>
 			</ThemeProvider>
