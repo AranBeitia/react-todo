@@ -14,6 +14,6 @@ export const FilterLink = styled.span`
 	cursor: pointer;
 
 	&:hover {
-		color: ${({ theme }) => theme.toggleBorder};
+		color: ${({ theme }) => theme.link};
 	}
 `

@@ -10,12 +10,9 @@ import Button from '../Button'
 const initValues = {
 	id: '',
 	title: '',
-	description: '',
-	priority: 0,
 	isEditable: false,
 	done: false,
 }
-
 class TodoForm extends React.Component {
 	render() {
 		const { handleSubmit } = this.props
@@ -45,36 +42,6 @@ class TodoForm extends React.Component {
 								className="form__error"
 							/>
 						</div>
-						<div className="form__group">
-							<label className="input" htmlFor="description">
-								<Field
-									id="description"
-									type="text"
-									name="description"
-									className="input__field"
-									placeholder=" "
-								/>
-								<span className="input__label">Description</span>
-							</label>
-							<ErrorMessage
-								name="description"
-								component="p"
-								className="form__error"
-							/>
-						</div>
-						{/* <div className="form__group">
-							<label className="input">
-								<Field
-									id="priority"
-									type="number"
-									name="priority"
-									className="input__field"
-									placeholder=" "
-								/>
-								<span className="input__label">Priority</span>
-							</label>
-							<ErrorMessage name="priority" component="p" />
-						</div> */}
 						<div className="form__group">
 							<Button type="submit">Add task</Button>
 						</div>

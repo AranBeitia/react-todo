@@ -8,30 +8,38 @@ class Input extends React.Component {
 		}
 	}
 
-	handleChange = (e) => {
-		this.setState({ inputValue: e.target.value })
-	}
+	// handleChange = (e) => {
+	// 	this.setState({ inputValue: e.target.value })
+	// }
 
-	handleKeyDown = (e) => {
-		if (e.key === 'Enter') {
-			this.props.handleEnter(this.state.inputValue)
-			this.setState({ inputValue: '' })
-		}
-	}
+	// handleKeyDown = (e) => {
+	// 	if (e.key === 'Enter') {
+	// 		this.props.handleEnter(this.state.inputValue)
+	// 		this.setState({ inputValue: '' })
+	// 	}
+	// }
 
 	render() {
-		const { inputValue } = this.state
+		const { title } = this.props
 		return (
-			<label className="input">
-				<input
+			<label className="input" htmlFor={title}>
+				{/* <input
 					className="input__field"
 					type="text"
 					placeholder=" "
 					value={inputValue}
 					onChange={this.handleChange}
 					onKeyDown={this.handleKeyDown}
+				/> */}
+
+				<input
+					id={title}
+					type="text"
+					name={title}
+					className="input__field"
+					placeholder=" "
 				/>
-				<span className="input__label">New task</span>
+				<span className="input__label">{title}</span>
 			</label>
 		)
 	}

@@ -1,7 +1,9 @@
 import * as yup from 'yup'
 
 export const TodoItemSchema = yup.object().shape({
-	title: yup.string().required('Title is a required field'),
-	description: yup.string().min(5).ensure(),
-	priority: yup.number().min(0).max(2).default(0),
+	title: yup
+		.string()
+		.required('Required field')
+		.min(3, 'Length min of 3 characters')
+		.max(15, 'Max length of 15 caracters'),
 })

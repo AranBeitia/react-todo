@@ -7,23 +7,23 @@ export const Button = styled.button`
 	width: 10rem;
 	font-weight: 600;
 	cursor: pointer;
-	border: 2px solid ${({ theme }) => theme.text};
+	border: 2px solid ${({ theme }) => theme.button};
 	background: transparent;
-	color: ${({ theme }) => theme.text};
+	color: ${({ theme }) => theme.button};
 	transition: all 0.25s ease;
 
 	${(props) =>
 		props.secondary &&
 		css`
-			background: ${({ theme }) => theme.text};
+			background: ${({ theme }) => theme.button};
 			color: white;
 		`}
 
 	&:hover {
-		border: 2px solid ${(props) => props.theme.background};
+		border: 2px solid ${(props) => props.theme.button};
 		background: ${(props) =>
-			props.secondary ? 'transparent' : props.theme.background};
-		color: ${(props) => (props.secondary ? props.theme.background : 'white')};
+			props.secondary ? 'transparent' : props.theme.button};
+		color: ${(props) => (props.secondary ? props.theme.button : 'white')};
 	}
 `
 

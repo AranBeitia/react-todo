@@ -5,7 +5,7 @@ const FilterItemList = styled.li`
 	cursor: pointer;
 
 	&:hover {
-		color: ${({ theme }) => theme.toggleBorder};
+		color: ${({ theme }) => theme.link};
 	}
 `
 export default FilterItemList
