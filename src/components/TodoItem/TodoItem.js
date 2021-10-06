@@ -1,9 +1,17 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 import './TodoItem.scss'
+import '../Input/Input.scss'
 
 import { ButtonSmall } from '../Button/Button.style'
 class TodoItem extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			inputValue: '',
+		}
+	}
+
 	taskDone = (id) => {
 		this.props.handleDone(id)
 	}
@@ -16,8 +24,51 @@ class TodoItem extends React.Component {
 		this.props.handleEdit(id)
 	}
 
+	// handleKeyDown = (e) => {
+	// 	if (e.key === 'Enter') {
+	// 		console.log(e)
+	// 		this.setState({ inputValue: '' })
+	// 	}
+	// }
+
+	handleSubmit = (e) => {
+		e.preventDefault()
+	}
+
+	handleChange = (e) => {
+		this.setState({ inputValue: e.target.value })
+	}
+
+	renderDefaultView = () => {
+		const { title, done } = this.props
+		return (
+			<label
+				htmlFor={title}
+				className={`todo-item__label ${done ? '--is-disabled' : ''}`}
+			>
+				{this.props.title}
+			</label>
+		)
+	}
+
+	renderEditView = () => {
+		const { title } = this.props
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<input
+					type="text"
+					name={title}
+					className="input__field"
+					defaultValue={this.state.inputValue}
+					onChange={this.handleChange}
+				/>
+			</form>
+		)
+	}
+
 	render() {
-		const { id, title, done, isEditable, index } = this.props
+		const { id, title, isEditable, index } = this.props
+		// const { editInput } = this.state
 		return (
 			<Draggable key={id} draggableId={id} index={index}>
 				{(provided) => (
@@ -35,15 +86,7 @@ class TodoItem extends React.Component {
 								name={title}
 								onClick={() => this.taskDone(id)}
 							/>
-							{!isEditable && (
-								<label
-									htmlFor={title}
-									className={`todo-item__label ${done ? '--is-disabled' : ''}`}
-								>
-									{title}
-								</label>
-							)}
-							{isEditable && <input type="text" />}
+							{isEditable ? this.renderEditView() : this.renderDefaultView()}
 						</div>
 						<div className="flex-end">
 							<ButtonSmall
