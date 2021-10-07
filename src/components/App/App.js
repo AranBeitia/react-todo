@@ -92,7 +92,6 @@ class App extends React.Component {
 	}
 
 	editTextItem = (itemTitle, itemId) => {
-		console.log(itemId)
 		const newList = this.state.list.map((item) => {
 			if (item.id === itemId) {
 				return {
