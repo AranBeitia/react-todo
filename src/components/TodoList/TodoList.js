@@ -15,6 +15,7 @@ class TodoList extends React.Component {
 			saveOrderTasks,
 			clearCompleted,
 			handleFilter,
+			handleSubmite,
 		} = this.props
 
 		return (
@@ -51,6 +52,7 @@ class TodoList extends React.Component {
 										handleDelete={deleteItem}
 										handleEdit={editItem}
 										handleFilter={handleFilter}
+										handleSubmite={handleSubmite}
 									/>
 								))}
 								{provided.placeholder}

@@ -91,6 +91,23 @@ class App extends React.Component {
 		this.setState({ list: newList })
 	}
 
+	editTextItem = (itemTitle, itemId) => {
+		console.log(itemId)
+		const newList = this.state.list.map((item) => {
+			if (item.id === itemId) {
+				return {
+					...item,
+					id: itemId,
+					title: itemTitle,
+					isEditable: !item.isEditable,
+				}
+			} else {
+				return item
+			}
+		})
+		this.setState({ list: newList })
+	}
+
 	addTask = (values) => {
 		const newList = { ...values, id: uuid() }
 		this.setState({ list: [...this.state.list, newList] })
@@ -128,6 +145,7 @@ class App extends React.Component {
 						saveOrderTasks={this.saveOrderTasks}
 						clearCompleted={this.clearCompleted}
 						handleFilter={this.handleFilter}
+						handleSubmite={this.editTextItem}
 					/>
 				</div>
 			</ThemeProvider>

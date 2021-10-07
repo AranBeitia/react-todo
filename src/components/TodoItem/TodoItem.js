@@ -8,7 +8,7 @@ class TodoItem extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			inputValue: '',
+			inputValue: this.props.title,
 		}
 	}
 
@@ -24,19 +24,15 @@ class TodoItem extends React.Component {
 		this.props.handleEdit(id)
 	}
 
-	// handleKeyDown = (e) => {
-	// 	if (e.key === 'Enter') {
-	// 		console.log(e)
-	// 		this.setState({ inputValue: '' })
-	// 	}
-	// }
-
-	handleSubmit = (e) => {
-		e.preventDefault()
-	}
-
 	handleChange = (e) => {
 		this.setState({ inputValue: e.target.value })
+	}
+
+	holita = (e) => {
+		const { id } = this.props
+		if (e.key === 'Enter') {
+			this.props.handleSubmite(this.state.inputValue, id)
+		}
 	}
 
 	renderDefaultView = () => {
@@ -54,21 +50,19 @@ class TodoItem extends React.Component {
 	renderEditView = () => {
 		const { title } = this.props
 		return (
-			<form onSubmit={this.handleSubmit}>
-				<input
-					type="text"
-					name={title}
-					className="input__field"
-					defaultValue={this.state.inputValue}
-					onChange={this.handleChange}
-				/>
-			</form>
+			<input
+				type="text"
+				name={title}
+				className="input__field"
+				value={this.state.inputValue}
+				onChange={this.handleChange}
+				onKeyDown={this.holita}
+			/>
 		)
 	}
 
 	render() {
 		const { id, title, isEditable, index } = this.props
-		// const { editInput } = this.state
 		return (
 			<Draggable key={id} draggableId={id} index={index}>
 				{(provided) => (
