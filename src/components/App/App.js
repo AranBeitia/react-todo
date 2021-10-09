@@ -4,8 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../Theme/Global.styles'
 import { lightTheme, darkTheme } from '../Theme/Theme'
 
-import './App.scss'
-
+import AppComponent from './App.styles'
 import Hero from '../Hero'
 import TodoForm from '../TodoForm'
 // import Input from '../Input'
@@ -128,7 +127,7 @@ class App extends React.Component {
 		return (
 			<ThemeProvider theme={themeMode}>
 				<GlobalStyles />
-				<div className="app">
+				<AppComponent>
 					<Hero
 						name={names[counter]}
 						handleclick={this.randomName}
@@ -146,7 +145,7 @@ class App extends React.Component {
 						handleFilter={this.handleFilter}
 						handleSubmite={this.editTextItem}
 					/>
-				</div>
+				</AppComponent>
 			</ThemeProvider>
 		)
 	}
