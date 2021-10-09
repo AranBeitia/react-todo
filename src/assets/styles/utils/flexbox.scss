@@ -12,3 +12,11 @@
 	display: flex;
 	justify-content: flex-end;
 }
+
+.flex-center-auto {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	flex-grow: 1;
+}

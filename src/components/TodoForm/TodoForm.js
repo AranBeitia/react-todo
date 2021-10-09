@@ -25,25 +25,27 @@ class TodoForm extends React.Component {
 				{({ values, errors, handleSubmit, isSubmitting }) => (
 					<Form className="form">
 						<h2>ToDo tasks</h2>
-						<div className="form__group">
-							<label className="input" htmlFor="title">
-								<Field
-									id="title"
-									type="text"
+						<div className="flex">
+							<div className="form__group">
+								<label className="input" htmlFor="title">
+									<Field
+										id="title"
+										type="text"
+										name="title"
+										className="input__field"
+										placeholder=" "
+									/>
+									<span className="input__label">Title</span>
+								</label>
+								<ErrorMessage
 									name="title"
-									className="input__field"
-									placeholder=" "
+									component="p"
+									className="form__error"
 								/>
-								<span className="input__label">Title</span>
-							</label>
-							<ErrorMessage
-								name="title"
-								component="p"
-								className="form__error"
-							/>
-						</div>
-						<div className="form__group">
-							<Button type="submit">Add task</Button>
+							</div>
+							<div className="form__group">
+								<Button type="submit">Add task</Button>
+							</div>
 						</div>
 					</Form>
 				)}

@@ -133,18 +133,20 @@ class App extends React.Component {
 						handleclick={this.randomName}
 						handleTheme={this.toggleTheme}
 					/>
-					<TodoForm handleSubmit={this.addTask} />
-					{/* <Input handleEnter={this.addTask} /> */}
-					<TodoList
-						taskList={list}
-						deleteItem={this.taskDelete}
-						editItem={this.taskEdit}
-						done={this.taskDone}
-						saveOrderTasks={this.saveOrderTasks}
-						clearCompleted={this.clearCompleted}
-						handleFilter={this.handleFilter}
-						handleSubmite={this.editTextItem}
-					/>
+					<section className="flex-center-auto">
+						<TodoForm handleSubmit={this.addTask} />
+						{/* <Input handleEnter={this.addTask} /> */}
+						<TodoList
+							taskList={list}
+							deleteItem={this.taskDelete}
+							editItem={this.taskEdit}
+							done={this.taskDone}
+							saveOrderTasks={this.saveOrderTasks}
+							clearCompleted={this.clearCompleted}
+							handleFilter={this.handleFilter}
+							handleSubmite={this.editTextItem}
+						/>
+					</section>
 				</AppComponent>
 			</ThemeProvider>
 		)

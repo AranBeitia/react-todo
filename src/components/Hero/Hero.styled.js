@@ -1,10 +1,17 @@
 import styled from 'styled-components'
-import image from '../../assets/img/background-dark.svg'
+import darkImg from '../../assets/img/background-dark.svg'
+import lightImg from '../../assets/img/background-light.svg'
 
 export const Hero = styled.section`
+	padding: 1rem;
 	background-color: ${({ theme }) => theme.hero};
 	border-radius: 10px 0 0 10px;
-	background-image: url(${image});
+	/* background-image: url
+		(${(theme) => (theme === 'dark' ? { darkImg } : { lightImg })}); */
+	background-image: url(${lightImg});
+	background-position: bottom;
+	background-size: contain;
+	background-repeat: no-repeat;
 
 	h1 {
 		padding: 1rem;
@@ -33,8 +40,26 @@ export const Hero = styled.section`
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin: 2rem;
 	}
 `
 
 export default Hero
+
+// const UniversalIconImg = (props) => {
+// 	return props.hasDedicatedHeroNavBar &&
+// 		props.currentNavBarStyle === 'light' ? (
+// 		<IconLight {...props} />
+// 	) : props.hasDedicatedHeroNavBar && props.currentNavBarStyle === 'default' ? (
+// 		<IconDefault {...props} />
+// 	) : (
+// 		<IconElse {...props} />
+// 	)
+// }
+
+// const IconLight = styled.div`
+// 	background-image: url('/images/account-icon-light.svg');
+// `
+
+// const IconDefault = styled.div`
+// 	background-image: url('${ThemeSettings.accountIcon}');
+// `
