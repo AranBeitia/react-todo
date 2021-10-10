@@ -6,17 +6,12 @@ export const Hero = styled.section`
 	padding: 1.5rem 2rem;
 	background-color: ${({ theme }) => theme.hero};
 	border-radius: 10px 0 0 10px;
-	/* background-image: url
-		(${(theme) => (theme === 'dark' ? { darkImg } : { lightImg })}); */
-	background-image: url(${lightImg});
 	background-position: bottom;
 	background-size: contain;
 	background-repeat: no-repeat;
 
 	@media all and (max-width: 768px) {
 		padding: 1rem 0;
-		background-color: transparent;
-		background-image: none;
 	}
 
 	h1 {
@@ -33,6 +28,25 @@ export const Hero = styled.section`
 			@media all and (max-width: 768px) {
 				color: ${({ theme }) => theme.button};
 			}
+		}
+	}
+
+	&.bg-img {
+		background-position: bottom;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		&__dark {
+			background-image: url(${lightImg});
+		}
+
+		&__light {
+			background-image: url(${darkImg});
+		}
+
+		@media all and (max-width: 768px) {
+			background-color: transparent;
+			background-image: none;
 		}
 	}
 

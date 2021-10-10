@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import lightImg from '../../assets/img/background-light.svg'
+import darkImg from '../../assets/img/background-dark.svg'
 
 export const AppComponent = styled.div`
 	display: flex;
@@ -14,12 +14,12 @@ export const AppComponent = styled.div`
 		flex-direction: column;
 		height: 100vh;
 
-		&.bg-image {
-			background-image: url(${lightImg});
+		&.bg-img {
 			background-position: bottom;
 			background-size: contain;
 			background-repeat: no-repeat;
 			height: -webkit-fill-available;
+			background-image: url(${darkImg});
 		}
 	}
 

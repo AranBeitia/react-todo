@@ -4,9 +4,13 @@ import { ButtonOutlined } from '../Button/Button.style'
 
 class Hero extends React.Component {
 	render() {
-		const { name, handleclick, handleTheme } = this.props
+		const { name, theme, handleclick, handleTheme } = this.props
 		return (
-			<HeroComponent>
+			<HeroComponent
+				className={`bg-img ${
+					theme === 'dark' ? 'bg-img__dark' : 'bg-img__light'
+				}`}
+			>
 				<header className="header-center">
 					<span
 						className="icon-brightness-contrast icon-theme"

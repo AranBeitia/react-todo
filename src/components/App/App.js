@@ -134,9 +134,10 @@ class App extends React.Component {
 		return (
 			<ThemeProvider theme={themeMode}>
 				<GlobalStyles />
-				<AppComponent className={list.length === 0 ? 'bg-image' : ''}>
+				<AppComponent className={list.length === 0 ? 'bg-img' : ''}>
 					<Hero
 						name={names[counter]}
+						theme={theme}
 						handleclick={this.randomName}
 						handleTheme={this.toggleTheme}
 					/>
