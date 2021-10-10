@@ -37,6 +37,17 @@ export const ButtonOutlined = styled(Button)`
 		border-color: ${({ theme }) => theme.background};
 		color: ${({ theme }) => theme.text};
 	}
+
+	@media all and (max-width: 768px) {
+		border-color: ${({ theme }) => theme.button};
+		color: ${({ theme }) => theme.button};
+
+		&:hover {
+			background-color: ${({ theme }) => theme.button};
+			border-color: ${({ theme }) => theme.button};
+			color: white;
+		}
+	}
 `
 
 export const ButtonSmall = styled(Button)`

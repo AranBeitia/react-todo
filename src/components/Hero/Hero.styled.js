@@ -13,16 +13,26 @@ export const Hero = styled.section`
 	background-size: contain;
 	background-repeat: no-repeat;
 
+	@media all and (max-width: 768px) {
+		background-color: transparent;
+		background-image: none;
+	}
+
 	h1 {
 		padding: 1rem;
 		color: #ffffff;
 
-		@media all and (max-width: 480px) {
+		@media all and (max-width: 768px) {
 			padding: 1rem 0;
+			color: ${({ theme }) => theme.text};
 		}
 
 		.text-highlight {
 			color: ${({ theme }) => theme.heroInvert};
+
+			@media all and (max-width: 768px) {
+				color: ${({ theme }) => theme.button};
+			}
 		}
 	}
 
@@ -32,13 +42,13 @@ export const Hero = styled.section`
 		transition: all 120ms ease-in;
 		color: ${({ theme }) => theme.heroInvert};
 
+		@media all and (max-width: 768px) {
+			color: ${({ theme }) => theme.button};
+		}
+
 		&:hover {
 			transform: scale(1.5);
 		}
-	}
-
-	.text-highlight {
-		/* color: var.$color-primary; */
 	}
 
 	.header-center {
@@ -50,22 +60,3 @@ export const Hero = styled.section`
 `
 
 export default Hero
-
-// const UniversalIconImg = (props) => {
-// 	return props.hasDedicatedHeroNavBar &&
-// 		props.currentNavBarStyle === 'light' ? (
-// 		<IconLight {...props} />
-// 	) : props.hasDedicatedHeroNavBar && props.currentNavBarStyle === 'default' ? (
-// 		<IconDefault {...props} />
-// 	) : (
-// 		<IconElse {...props} />
-// 	)
-// }
-
-// const IconLight = styled.div`
-// 	background-image: url('/images/account-icon-light.svg');
-// `
-
-// const IconDefault = styled.div`
-// 	background-image: url('${ThemeSettings.accountIcon}');
-// `

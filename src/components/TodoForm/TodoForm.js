@@ -47,7 +47,7 @@ class TodoForm extends React.Component {
 				{({ values, errors, handleSubmit, isSubmitting }) => (
 					<Form className="form">
 						<h2>ToDo tasks</h2>
-						<div className="flex-between-center">
+						<div className="form__wrapper">
 							<div className="form__group">
 								<label className="input" htmlFor="title">
 									<Field
@@ -66,7 +66,7 @@ class TodoForm extends React.Component {
 								/>
 							</div>
 							<div className="form__group">
-								<Button type="submit">Add task</Button>
+								<Button type="submit">Add</Button>
 							</div>
 						</div>
 					</Form>

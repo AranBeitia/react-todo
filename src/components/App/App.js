@@ -135,7 +135,6 @@ class App extends React.Component {
 					/>
 					<section className="flex-center-auto">
 						<TodoForm handleSubmit={this.addTask} />
-						{/* <Input handleEnter={this.addTask} /> */}
 						<TodoList
 							taskList={list}
 							deleteItem={this.taskDelete}
