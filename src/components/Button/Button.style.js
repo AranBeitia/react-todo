@@ -27,6 +27,18 @@ export const Button = styled.button`
 	}
 `
 
+export const ButtonOutlined = styled(Button)`
+	background-color: transparent;
+	border-color: ${({ theme }) => theme.background};
+	color: ${({ theme }) => theme.background};
+
+	&:hover {
+		background-color: ${({ theme }) => theme.background};
+		border-color: ${({ theme }) => theme.background};
+		color: ${({ theme }) => theme.text};
+	}
+`
+
 export const ButtonSmall = styled(Button)`
 	width: 1.5rem;
 	height: 1.5rem;

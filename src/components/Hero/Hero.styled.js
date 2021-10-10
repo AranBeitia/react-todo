@@ -15,9 +15,14 @@ export const Hero = styled.section`
 
 	h1 {
 		padding: 1rem;
+		color: #ffffff;
 
 		@media all and (max-width: 480px) {
 			padding: 1rem 0;
+		}
+
+		.text-highlight {
+			color: ${({ theme }) => theme.heroInvert};
 		}
 	}
 
@@ -25,6 +30,7 @@ export const Hero = styled.section`
 		font-size: 1.6rem;
 		cursor: pointer;
 		transition: all 120ms ease-in;
+		color: ${({ theme }) => theme.heroInvert};
 
 		&:hover {
 			transform: scale(1.5);

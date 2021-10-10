@@ -5,6 +5,7 @@ export const lightTheme = {
 	bodyBackground: '#7D80AA',
 	background: '#ffffff',
 	hero: '#010418',
+	heroInvert: '#d103fc',
 }
 
 export const darkTheme = {
@@ -14,4 +15,5 @@ export const darkTheme = {
 	bodyBackground: '#1C1938',
 	background: '#010418',
 	hero: '#d103fc',
+	heroInvert: '#010418',
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroComponent from './Hero.styled'
-import { Button } from '../Button/Button.style'
+import { ButtonOutlined } from '../Button/Button.style'
 
 class Hero extends React.Component {
 	render() {
@@ -15,9 +15,9 @@ class Hero extends React.Component {
 					<h1>
 						What's up, <span className="text-highlight">{name}</span>!
 					</h1>
-					<Button type="button" onClick={handleclick}>
+					<ButtonOutlined type="button" onClick={handleclick}>
 						Random name
-					</Button>
+					</ButtonOutlined>
 				</header>
 			</HeroComponent>
 		)
