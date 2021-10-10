@@ -1,7 +1,7 @@
 import React from 'react'
 import { TodoItemSchema } from './schema'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-
+import styled from 'styled-components'
 import './TodoForm.scss'
 
 import Button from '../Button'
@@ -12,6 +12,28 @@ const initValues = {
 	title: '',
 	isEditable: false,
 	done: false,
+}
+const InputStyled = styled.input`
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	border: 0;
+	border-bottom: 2px solid ${({ theme }) => theme.text};
+	padding: calc(0.5rem * 1.5) 0.5rem;
+	color: ${({ theme }) => theme.text};
+	background: transparent;
+
+	&:focus,
+	&:not(:placeholder-shown) {
+		& + .input__label {
+			transform: translate(0, -80%) scale(0.8);
+			color: #7d80aa;
+		}
+	}
+`
+
+const Input = ({ field, form, ...props }) => {
+	return <InputStyled {...field} {...props} />
 }
 class TodoForm extends React.Component {
 	render() {
@@ -32,8 +54,8 @@ class TodoForm extends React.Component {
 										id="title"
 										type="text"
 										name="title"
-										className="input__field"
 										placeholder=" "
+										component={Input}
 									/>
 									<span className="input__label">Title</span>
 								</label>

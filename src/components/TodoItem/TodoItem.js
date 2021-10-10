@@ -1,9 +1,8 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
-import './TodoItem.scss'
-// import '../Input/Input.scss'
-import '../Input/Input.style'
 
+import TodoItemStyle from './TodoItem.style'
+import { Input } from '../Input/Input.style'
 import { ButtonSmall } from '../Button/Button.style'
 class TodoItem extends React.Component {
 	constructor(props) {
@@ -29,7 +28,7 @@ class TodoItem extends React.Component {
 		this.setState({ inputValue: e.target.value })
 	}
 
-	holita = (e) => {
+	handleUpdate = (e) => {
 		const { id } = this.props
 		if (e.key === 'Enter') {
 			this.props.handleSubmite(this.state.inputValue, id)
@@ -39,10 +38,7 @@ class TodoItem extends React.Component {
 	renderDefaultView = () => {
 		const { title, done } = this.props
 		return (
-			<label
-				htmlFor={title}
-				className={`todo-item__label ${done ? '--is-disabled' : ''}`}
-			>
+			<label htmlFor={title} className={`label ${done ? '--is-disabled' : ''}`}>
 				{this.props.title}
 			</label>
 		)
@@ -51,13 +47,12 @@ class TodoItem extends React.Component {
 	renderEditView = () => {
 		const { title } = this.props
 		return (
-			<input
+			<Input
 				type="text"
 				name={title}
-				className="input__field"
 				value={this.state.inputValue}
 				onChange={this.handleChange}
-				onKeyDown={this.holita}
+				onKeyDown={this.handleUpdate}
 			/>
 		)
 	}
@@ -67,7 +62,7 @@ class TodoItem extends React.Component {
 		return (
 			<Draggable key={id} draggableId={id} index={index}>
 				{(provided) => (
-					<li
+					<TodoItemStyle
 						key={id}
 						{...provided.draggableProps}
 						ref={provided.innerRef}
@@ -93,7 +88,7 @@ class TodoItem extends React.Component {
 								onClick={() => this.taskDelete(id)}
 							></ButtonSmall>
 						</div>
-					</li>
+					</TodoItemStyle>
 				)}
 			</Draggable>
 		)
