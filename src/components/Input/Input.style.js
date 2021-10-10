@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Input = styled.input`
 	box-sizing: border-box;
 	display: block;
+	min-width: 200px;
 	width: 100%;
 	border: 0;
 	border-bottom: 2px solid ${({ theme }) => theme.text};

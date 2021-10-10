@@ -3,7 +3,7 @@ import darkImg from '../../assets/img/background-dark.svg'
 import lightImg from '../../assets/img/background-light.svg'
 
 export const Hero = styled.section`
-	padding: 1rem;
+	padding: 1.5rem 2rem;
 	background-color: ${({ theme }) => theme.hero};
 	border-radius: 10px 0 0 10px;
 	/* background-image: url
@@ -14,12 +14,12 @@ export const Hero = styled.section`
 	background-repeat: no-repeat;
 
 	@media all and (max-width: 768px) {
+		padding: 1rem 0;
 		background-color: transparent;
 		background-image: none;
 	}
 
 	h1 {
-		padding: 1rem;
 		color: #ffffff;
 
 		@media all and (max-width: 768px) {
@@ -56,6 +56,10 @@ export const Hero = styled.section`
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+
+	button {
+		margin: 1rem;
 	}
 `
 

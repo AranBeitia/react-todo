@@ -5,7 +5,6 @@ import TodoListStyle from './TodoList.style'
 import FilterList from '../FilterList'
 import TodoItem from '../TodoItem'
 
-import lightImg from '../../assets/img/background-light.svg'
 class TodoList extends React.Component {
 	render() {
 		const {
@@ -20,7 +19,7 @@ class TodoList extends React.Component {
 		} = this.props
 
 		return (
-			<TodoListStyle className={taskList.length === 0 ? 'bg-image' : ''}>
+			<TodoListStyle>
 				<FilterList
 					taskList={taskList}
 					clearCompleted={clearCompleted}

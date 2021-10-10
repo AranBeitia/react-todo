@@ -1,6 +1,10 @@
 .form {
 	padding: 1rem;
 
+	@media all and (max-width: 768px) {
+		padding: 0 1rem;
+	}
+
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
@@ -18,7 +22,7 @@
 
 		@media all and (max-width: 768px) {
 			button {
-				width: 100%;
+				max-width: 100%;
 			}
 		}
 	}

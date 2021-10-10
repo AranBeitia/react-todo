@@ -7,7 +7,6 @@ import { lightTheme, darkTheme } from '../Theme/Theme'
 import AppComponent from './App.styles'
 import Hero from '../Hero'
 import TodoForm from '../TodoForm'
-// import Input from '../Input'
 import TodoList from '../TodoList'
 
 const names = ['Aran', 'Kitty', 'Jane']
@@ -127,13 +126,13 @@ class App extends React.Component {
 		return (
 			<ThemeProvider theme={themeMode}>
 				<GlobalStyles />
-				<AppComponent>
+				<AppComponent className={list.length === 0 ? 'bg-image' : ''}>
 					<Hero
 						name={names[counter]}
 						handleclick={this.randomName}
 						handleTheme={this.toggleTheme}
 					/>
-					<section className="flex-center-auto">
+					<main className="main-wrapper">
 						<TodoForm handleSubmit={this.addTask} />
 						<TodoList
 							taskList={list}
@@ -145,7 +144,7 @@ class App extends React.Component {
 							handleFilter={this.handleFilter}
 							handleSubmite={this.editTextItem}
 						/>
-					</section>
+					</main>
 				</AppComponent>
 			</ThemeProvider>
 		)

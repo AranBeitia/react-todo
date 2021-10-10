@@ -4,7 +4,8 @@ export const Button = styled.button`
 	display: block;
 	border-radius: 3px;
 	padding: 0.5rem 1rem;
-	width: 10rem;
+	max-width: 180px;
+	width: 100%;
 	font-weight: 600;
 	cursor: pointer;
 	border: 2px solid ${({ theme }) => theme.button};
