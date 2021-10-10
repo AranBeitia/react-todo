@@ -1,7 +1,8 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 import './TodoItem.scss'
-import '../Input/Input.scss'
+// import '../Input/Input.scss'
+import '../Input/Input.style'
 
 import { ButtonSmall } from '../Button/Button.style'
 class TodoItem extends React.Component {

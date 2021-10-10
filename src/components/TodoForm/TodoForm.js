@@ -2,10 +2,10 @@ import React from 'react'
 import { TodoItemSchema } from './schema'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
-import '../Input/Input.scss'
 import './TodoForm.scss'
 
 import Button from '../Button'
+import '../Input/Input.scss'
 
 const initValues = {
 	id: '',
@@ -25,7 +25,7 @@ class TodoForm extends React.Component {
 				{({ values, errors, handleSubmit, isSubmitting }) => (
 					<Form className="form">
 						<h2>ToDo tasks</h2>
-						<div className="flex">
+						<div className="flex-between-center">
 							<div className="form__group">
 								<label className="input" htmlFor="title">
 									<Field
