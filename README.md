@@ -2,6 +2,11 @@
 
 Tasks list App developed in React
 
+## Badges
+
+[![React dom](https://img.shields.io/badge/React-17.0.2-blue)](https://img.shields.io/badge/React-17.0.2-blue)
+[![Styled Components](https://img.shields.io/badge/Styled%20Components-5.3.1-pink)](https://img.shields.io/badge/Styled%20Components-5.3.1-pink)
+
 ## Stack
 
 **Client:** React, Sass, Styled Components
