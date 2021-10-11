@@ -2,18 +2,6 @@
 
 Tasks list App developed in React
 
-## Theory
-
-\* NPM Tool
-
-\* Javascript
-
-\* Formik Library
-
-\* Uuid Library
-
-\* Yup Library
-
 ## Stack
 
 **Client:** React, Sass, Styled Components
@@ -41,7 +29,9 @@ Tasks list App developed in React
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot - light](https://user-images.githubusercontent.com/12766483/136756256-95c2ace0-bdce-41a0-b709-9ec8af35b758.jpg)
+
+![App Screenshot - dark](https://user-images.githubusercontent.com/12766483/136756277-207337c0-ddf0-4a4c-9036-f4eee7fe597c.jpg)
 
 ## Authors
 
