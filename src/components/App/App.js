@@ -1,6 +1,6 @@
 import React from 'react'
 import { v4 as uuid } from 'uuid'
-import loadLocalStorage from '../../utils/localStorage'
+import { readLocalStorage, writeLocalStorage } from '../../utils/localStorage'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../Theme/Global.styles'
 import { lightTheme, darkTheme } from '../Theme/Theme'
@@ -9,7 +9,7 @@ import AppComponent from './App.styles'
 import Hero from '../Hero'
 import TodoForm from '../TodoForm'
 import TodoList from '../TodoList'
-const LOCALSTORAGE_KEY = 'todo-list'
+
 const names = ['Aran', 'Kitty', 'Jane']
 class App extends React.Component {
 	constructor(props) {
@@ -17,26 +17,29 @@ class App extends React.Component {
 		this.state = {
 			userName: '',
 			counter: 0,
-			theme: 'dark',
+			theme: '',
 			showItems: 'all',
 			list: [],
 		}
 	}
 
 	componentDidMount() {
-		this.setState({ userName: names })
+		const lastState = readLocalStorage('todo-app')
+		this.setState({ ...lastState, userName: names })
 	}
 
 	componentDidUpdate() {
 		const { theme } = this.state
-		localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify({ theme }))
+		writeLocalStorage('todo-app', JSON.stringify({ theme }))
 	}
 
 	toggleTheme = () => {
-		const themeStoraged = loadLocalStorage()
-		console.log(themeStoraged)
-		if (themeStoraged.theme === 'dark') this.setState({ theme: 'light' })
-		if (themeStoraged.theme === 'light') this.setState({ theme: 'dark' })
+		const { theme } = this.state
+
+		if (theme === 'dark')
+			this.setState((prevState) => ({ ...prevState, theme: 'light' }))
+		if (theme === 'light')
+			this.setState((prevState) => ({ ...prevState, theme: 'dark' }))
 	}
 
 	randomName = () => {

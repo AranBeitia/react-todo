@@ -1,15 +1,15 @@
-const LOCALSTORAGE_KEY = 'todo-list'
+export function readLocalStorage(key) {
+	const json = localStorage.getItem(key)
+	const data = JSON.parse(json)
 
-export function loadLocalStorage() {
-	const prevItems = localStorage.getItem(LOCALSTORAGE_KEY)
-
-	if (!prevItems) return null
-
-	try {
-		return JSON.parse(prevItems)
-	} catch (error) {
-		return null
+	if (key === 'todo-app' && !data) {
+		return {
+			theme: 'dark',
+		}
 	}
+	return data
 }
 
-export default loadLocalStorage
+export function writeLocalStorage(key, value) {
+	localStorage.setItem(key, value)
+}
