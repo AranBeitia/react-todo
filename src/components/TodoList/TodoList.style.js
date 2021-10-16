@@ -8,7 +8,7 @@ export const TodoListStyle = styled.section`
 		text-align: center;
 	}
 
-	@media all and (max-width: 768px) {
+	@media all and (max-width: 48rem) {
 		padding: 0 1rem;
 	}
 `

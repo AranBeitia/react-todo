@@ -4,20 +4,23 @@ import lightImg from '../../assets/img/background-light.svg'
 
 export const Hero = styled.section`
 	padding: 1.5rem 2rem;
+	margin: 0 auto;
+	max-width: 21.8rem;
+	width: 100%;
 	background-color: ${({ theme }) => theme.hero};
 	border-radius: 10px 0 0 10px;
 	background-position: bottom;
 	background-size: contain;
 	background-repeat: no-repeat;
 
-	@media all and (max-width: 768px) {
+	@media all and (max-width: 48rem) {
 		padding: 1rem 0;
 	}
 
 	h1 {
 		color: #ffffff;
 
-		@media all and (max-width: 768px) {
+		@media all and (max-width: 48rem) {
 			padding: 1rem 0;
 			color: ${({ theme }) => theme.text};
 		}
@@ -25,7 +28,7 @@ export const Hero = styled.section`
 		.text-highlight {
 			color: ${({ theme }) => theme.heroInvert};
 
-			@media all and (max-width: 768px) {
+			@media all and (max-width: 48rem) {
 				color: ${({ theme }) => theme.button};
 			}
 		}
@@ -44,7 +47,7 @@ export const Hero = styled.section`
 			background-image: url(${darkImg});
 		}
 
-		@media all and (max-width: 768px) {
+		@media all and (max-width: 48rem) {
 			background-color: transparent;
 			background-image: none;
 		}
@@ -56,7 +59,7 @@ export const Hero = styled.section`
 		transition: all 120ms ease-in;
 		color: ${({ theme }) => theme.heroInvert};
 
-		@media all and (max-width: 768px) {
+		@media all and (max-width: 48rem) {
 			color: ${({ theme }) => theme.button};
 		}
 
