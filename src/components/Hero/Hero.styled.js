@@ -57,7 +57,7 @@ export const Hero = styled.section`
 		font-size: 1.6rem;
 		cursor: pointer;
 		transition: all 120ms ease-in;
-		color: ${({ theme }) => theme.heroInvert};
+		color: ${({ theme }) => theme.icon};
 
 		@media all and (max-width: 48rem) {
 			color: ${({ theme }) => theme.button};

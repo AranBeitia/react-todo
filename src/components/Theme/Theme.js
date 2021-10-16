@@ -6,6 +6,7 @@ export const lightTheme = {
 	background: '#ffffff',
 	hero: '#010418',
 	heroInvert: '#d103fc',
+	icon: '#d103fc',
 }
 
 export const darkTheme = {
@@ -16,4 +17,5 @@ export const darkTheme = {
 	background: '#010418',
 	hero: '#d103fc',
 	heroInvert: '#010418',
+	icon: '#ffffff',
 }
