@@ -30,7 +30,7 @@ Tasks list App developed in React
 ## Demo
 
 - [Project developed in Netlify](https://muchmoretodo.netlify.app/)
-- [Design in Figma](https://www.figma.com/file/0xVpEEJ8rLuTUH1CvngMsi/TODO-LIST?node-id=0%3A1)
+- [Design in Figma](https://www.figma.com/file/8tWej6tuMP1uiTU7jaeNWq/TODO-LIST?node-id=0%3A1)
 
 ## Screenshots
 
