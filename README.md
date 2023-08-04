@@ -7,6 +7,10 @@ Tasks list App developed in React
 [![React dom](https://img.shields.io/badge/React-17.0.2-blue)](https://img.shields.io/badge/React-17.0.2-blue)
 [![Styled Components](https://img.shields.io/badge/Styled%20Components-5.3.1-pink)](https://img.shields.io/badge/Styled%20Components-5.3.1-pink)
 
+## Resources
+
+- [Vector images](https://undraw.co/illustrations)
+
 ## Stack
 
 **Client:** React, Sass, Styled Components
